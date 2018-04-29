@@ -21,6 +21,11 @@ namespace ControlSurfaceToggle {
 
 		}
 
+		void OnDestroy() {
+			GameEvents.onVesselSituationChange.Remove(UpdateCurrentAtmosphereState);
+
+		}
+
 		public void UpdateCurrentAtmosphereState(GameEvents.HostedFromToAction<Vessel, Vessel.Situations> data) {
 
 			if (FlightGlobals.ActiveVessel == null) {

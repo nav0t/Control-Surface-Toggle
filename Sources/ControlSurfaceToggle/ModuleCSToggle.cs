@@ -79,6 +79,12 @@ namespace ControlSurfaceToggle
 		}
 
 
+		void OnDestroy() {
+			GameEvents.onVesselSituationChange.Remove(UpdateCurrentAtmosphereState);
+
+		}
+
+
 		public void UpdateCurrentAtmosphereState(GameEvents.HostedFromToAction<Vessel, Vessel.Situations> data) {
 
 			wasInAtmo = FlightGlobals.ActiveVessel.atmDensity != 0; //updating wasInAtmo so it gets saved correctly
